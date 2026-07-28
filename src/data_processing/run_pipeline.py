@@ -18,7 +18,7 @@ Run this from the command line as follows:
 """
 
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
@@ -307,14 +307,11 @@ def run_pipeline():
     print("\n" + "=" * 60)
     print("  LIBRARY DATA PIPELINE")
     print("  Starting pipeline execution...")
-    print(
-        "  Time: "
-        + datetime.now(tz=datetime.timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
-    )
+    
     print("=" * 60)
 
     # Track pipeline metrics
-    start_time = datetime.now(tz=datetime.timezone.utc)
+    start_time = datetime.now(tz=timezone.utc)
     results = {}
     warnings = []
 
@@ -326,7 +323,7 @@ def run_pipeline():
         results["feedback"] = process_feedback_data()
 
         # Calculate pipeline statistics
-        end_time = datetime.now(tz=datetime.timezone.utc)
+        end_time = datetime.now(tz=timezone.utc)
         duration = (end_time - start_time).total_seconds()
 
         # Print final summary
