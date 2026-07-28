@@ -4,10 +4,10 @@ TODO: Complete these functions for the library project.
 """
 
 import json
-
 import logging
-import pandas as pd
 from pathlib import Path
+
+import pandas as pd
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -65,7 +65,7 @@ def load_json(filepath):
 
     try:
         logger.info(f"Loading JSON from {filepath}")
-        with open(filepath, 'r') as f:
+        with open(filepath, "r") as f:
             data = json.load(f)
 
         df = pd.json_normalize(data)

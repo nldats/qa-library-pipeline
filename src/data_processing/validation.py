@@ -2,12 +2,11 @@
 Data validation functions.
 """
 
-
 # Example function to implement:
-import re
 import logging
 
 logger = logging.getLogger(__name__)
+
 
 def validate_isbn(isbn):
     if isbn is None:

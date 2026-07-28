@@ -5,9 +5,12 @@ src/data_processing/ingestion.py.
 """
 
 from unittest.mock import patch
+
 import pandas as pd
 import pytest
-from data_processing.ingestion import load_csv, load_json, load_excel
+
+from data_processing.ingestion import load_csv, load_excel, load_json
+
 
 def test_load_csv_file_not_found(tmp_path):
     fake_path = tmp_path / "nonexistent.csv"
